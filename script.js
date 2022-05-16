@@ -5,19 +5,23 @@ const lis = document.querySelectorAll("li");
 const printButton = document.getElementById("print");
 const deleteButton = document.getElementById("delete");
 
+function resetInput() {
+  input.value = "";
+}
+
 function inputLength() {
   return input.value.length;
 }
 
 function addListAfterClick() {
   if (inputLength() > 0) {
-    createListElement();
+    createListElement(input.value);
   }
 }
 
 function addListAfterKeypress(event) {
   if (inputLength() > 0 && event.key === "Enter") {
-    createListElement();
+    createListElement(input.value);
   }
 }
 
@@ -25,12 +29,12 @@ function crossedList() {
   this.classList.toggle("crossed");
 }
 
-function createListElement() {
+function createListElement(value) {
   const li = document.createElement("li");
-  li.appendChild(document.createTextNode(input.value));
-  ul.appendChild(li);
-  input.value = "";
+  li.appendChild(document.createTextNode(value));
   li.addEventListener("click", crossedList);
+  ul.appendChild(li);
+  resetInput();
 }
 
 function printPage() {
@@ -46,9 +50,9 @@ function printPage() {
 }
 
 function deleteList() {
-  const lis = document.querySelectorAll("li");
-  for (var i = 0; i < lis.length; i++) {
-    lis[i].remove();
+  const elements = document.querySelectorAll("li");
+  for (var i = 0; i < elements.length; i++) {
+    elements[i].remove();
   }
 }
 
