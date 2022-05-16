@@ -1,0 +1,145 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+
+html {
+  font-size: 100%;
+  font-family: 'Dancing Script', cursive;
+  background: url(supermarket.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: space-around;
+}
+
+h1 {
+  font-size: 6em;
+  text-align: center;
+  margin: 0;
+  font-weight: 800;
+}
+
+#first {
+  color: rgb(182, 51, 160);
+  font-weight: 600;
+  font-size: 3em;
+  margin: 20px;
+}
+
+#container {
+  display: flex;
+  height: fit-content;
+  align-items: center;
+  align-content: space-around;
+  flex-direction: column;
+  padding: 40px;
+  margin-bottom: 40px;
+  border-radius: 35px;
+  background-color: rgba(240, 248, 255, 0.658);
+}
+
+#inputBox {
+  display: flex;
+  place-content: center center;
+}
+
+#userInput {
+  border-radius: 10px;
+  border-color: rgb(29, 138, 189);
+  font-size: 1.2em;
+}
+
+#enter {
+  border-radius: 10px;
+  border-color: rgb(18, 177, 84);
+  font-size: 1.2em;
+}
+
+#toDoList {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.5em;
+  font-weight: 600;
+  margin-bottom: 2em;
+  list-style-position: outside;
+  list-style-image: url(caddie1.png);
+}
+
+li {
+  transition: transform ease-in-out 400ms;
+}
+
+li:hover {
+  transform: scale(1.1);
+}
+
+
+.crossed {
+  list-style-image: url(caddie2.png);
+  text-decoration: line-through;
+}
+
+#buttonsBottom {
+  display: flex;
+  justify-content: center;
+}
+
+#delete {
+  cursor: pointer;
+  display: flex;
+  margin: 20px;
+  align-items: center;
+  border-radius: 10px;
+  border-color: brown;
+  transition: transform ease-in-out 400ms;
+  font-size: 1.2em;
+}
+
+#print {
+  cursor: pointer;
+  display: flex;
+  margin: 20px;
+  align-items: center;
+  border-radius: 10px;
+  border-color: rgb(29, 138, 189);
+  transition: transform ease-in-out 400ms;
+  font-size: 1.2em;
+}
+
+#delete:hover {
+  transform: scale(1.6);
+  background-color: brown;
+  color: blanchedalmond;
+}
+
+#print:hover {
+  transform: scale(1.6);
+  background-color: rgb(29, 138, 189);
+  color: blanchedalmond;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+footer {
+  width: 100vw;
+  font-size: 2em;
+  background-color: rgba(255, 235, 205, 0.534);
+text-align: center;
+  position:fixed;
+  bottom:0;
+}
