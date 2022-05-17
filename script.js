@@ -1,10 +1,14 @@
 const button = document.getElementById("enter");
 const input = document.getElementById("userInput");
 const ul = document.querySelector("ul");
-const lis = document.querySelectorAll("li");
+const lis = document.getElementsByTagName("li");
 const printButton = document.getElementById("print");
 const deleteButton = document.getElementById("delete");
 
+
+
+
+// empty the input field
 function resetInput() {
   input.value = "";
 }
@@ -13,27 +17,43 @@ function inputLength() {
   return input.value.length;
 }
 
+// add input value as list item after "add an item" button is pressed
 function addListAfterClick() {
   if (inputLength() > 0) {
     createListElement(input.value);
   }
 }
 
+// add input value as list item after enter key is pressed
 function addListAfterKeypress(event) {
   if (inputLength() > 0 && event.key === "Enter") {
     createListElement(input.value);
   }
 }
 
+// change list style and icons to done
 function crossedList() {
-  this.classList.toggle("crossed");
+  this.classList.toggle("done");
 }
 
+function deleteItem() {
+  this.parentNode.remove();
+}
+
+// create new element with input value, and trash button
 function createListElement(value) {
   const li = document.createElement("li");
   li.appendChild(document.createTextNode(value));
   li.addEventListener("click", crossedList);
   ul.appendChild(li);
+  const trashButton = document.createElement("button");
+  trashButton.classList.add("trash");
+  li.appendChild(trashButton);
+  const trash = document.createElement("i");
+  trash.classList.add("fa");
+  trash.classList.add("fa-trash");
+  trashButton.appendChild(trash);
+  trashButton.addEventListener("click", deleteItem);
   resetInput();
 }
 
@@ -56,8 +76,10 @@ function deleteList() {
   }
 }
 
-for (var i = 0; i < lis.length; i++) {
-  lis[i].addEventListener("click", crossedList);
+// create "placeholder" items
+var els = ["Milk", "Water", "Eggs", "Oranges", "Lemons"];
+for (var i = 0; i < els.length; i++) {
+  createListElement(els[i]);
 }
 
 deleteButton.addEventListener("click", deleteList);
