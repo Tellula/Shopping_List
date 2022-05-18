@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Kalam:wght@300&display=swap");
 
 html {
   font-size: 100%;
@@ -33,20 +33,19 @@ h1 {
   text-shadow: 0 1px 4px rgb(5, 183, 253);
 }
 
-
 #tooltip {
   opacity: 0;
   text-align: center;
-  font-size: 10px;
+  font-size: 12px;
   font-family: "Montserrat", sans-serif;
   font-weight: 900;
   color: rgb(226, 43, 211);
-  background-color: rgb(255, 255, 255);
   padding: 10px;
   border-radius: 20px;
   border-color: rgb(226, 10, 136);
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.63);
   margin: 0;
+  margin-top: 30px;
+  background-color: aliceblue;
 }
 
 .fa-lightbulb {
@@ -95,27 +94,35 @@ h1 {
   border-radius: 10px;
   border-color: rgb(29, 138, 189);
   font-size: 1.2em;
-  font-family: 'Kalam', cursive;
+  font-family: "Montserrat", sans-serif;
 }
 
 #enter {
+  cursor: pointer;
   border-radius: 10px;
   border-color: rgb(18, 177, 84);
   background-color: rgb(11, 136, 88);
   color: white;
   font-size: 1em;
   font-family: "Montserrat", sans-serif;
+  transition: transform ease-in-out 400ms;
+}
+
+#enter:hover {
+  transform: scale(1.1);
 }
 
 #toDoList {
+  position: relative;
+  z-index: 1;
   cursor: pointer;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: start;
-  font-family: 'Kalam', cursive;
-  font-size: 2em;
-  font-weight: 500;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.5em;
+  font-weight: 600;
   list-style-position: outside;
   list-style-image: url(caddie1.png);
 }
@@ -125,7 +132,7 @@ ul {
 }
 
 li {
-  color: rgb(8, 81, 150);
+  color: rgb(3, 29, 54);
   transition: transform ease-in-out 400ms;
 }
 
@@ -133,7 +140,7 @@ li:hover {
   transform: scale(1.1);
 }
 
-li:hover #tooltip {
+#container:hover #tooltip {
   opacity: 1;
 }
 
@@ -141,10 +148,10 @@ li:hover #tooltip {
   background-color: rgb(190, 37, 109); /* Blue background */
   border-color: brown;
   border-radius: 40px;
-  color: white; 
-  padding: 4px 5px; 
-  font-size: 12px; 
-  cursor: pointer; 
+  color: white;
+  padding: 4px 5px;
+  font-size: 12px;
+  cursor: pointer;
   margin-left: 20px;
   opacity: 0;
   transition: opacity ease-in-out 500ms;
@@ -163,7 +170,7 @@ li:hover .trash {
 
 .done {
   list-style-image: url(caddie2.png);
-  text-decoration: line-through 3px;   
+  text-decoration: line-through 3px;
 }
 
 #buttonsBottom {
@@ -200,13 +207,13 @@ li:hover .trash {
 }
 
 #delete:hover {
-  transform: scale(1.6);
+  transform: scale(1.2);
   background-color: brown;
   color: blanchedalmond;
 }
 
 #print:hover {
-  transform: scale(1.6);
+  transform: scale(1.2);
   background-color: rgb(29, 138, 189);
   color: blanchedalmond;
 }

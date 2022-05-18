@@ -4,9 +4,7 @@ const ul = document.querySelector("ul");
 const lis = document.getElementsByTagName("li");
 const printButton = document.getElementById("print");
 const deleteButton = document.getElementById("delete");
-
-
-
+const tooltip = document.getElementById("tooltip");
 
 // empty the input field
 function resetInput() {
@@ -58,6 +56,7 @@ function createListElement(value) {
 }
 
 function printPage() {
+  tooltip.classList.add("hidden");
   deleteButton.classList.add("hidden");
   button.classList.add("hidden");
   input.classList.add("hidden");
@@ -67,6 +66,7 @@ function printPage() {
   button.classList.remove("hidden");
   input.classList.remove("hidden");
   printButton.classList.remove("hidden");
+  tooltip.classList.remove("hidden");
 }
 
 function deleteList() {
