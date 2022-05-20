@@ -7,28 +7,27 @@ const deleteButton = document.getElementById("delete");
 const tooltip = document.getElementById("tooltip");
 
 // empty the input field
-function resetInput() {
+const resetInput = () => {
   input.value = "";
 }
 
-function inputLength() {
+// returns input lenght to check if the item should be send (>1) 
+const inputLength = () => {
   return input.value.length;
 }
 
 // add input value as list item after "add an item" button is pressed
-function addListAfterClick() {
+const addListAfterClick = () => {
   if (inputLength() > 0) {
     createListElement(input.value);
   }
 }
-
 // add input value as list item after enter key is pressed
-function addListAfterKeypress(event) {
+const addListAfterKeypress = (event) => {
   if (inputLength() > 0 && event.key === "Enter") {
     createListElement(input.value);
   }
 }
-
 // change list style and icons to done
 function crossedList() {
   this.classList.toggle("done");
