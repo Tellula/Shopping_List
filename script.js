@@ -9,36 +9,36 @@ const tooltip = document.getElementById("tooltip");
 // empty the input field
 const resetInput = () => {
   input.value = "";
-}
+};
 
-// returns input lenght to check if the item should be send (>1) 
+// returns input lenght to check if the item should be send (>1)
 const inputLength = () => {
   return input.value.length;
-}
+};
 
 // add input value as list item after "add an item" button is pressed
 const addListAfterClick = () => {
   if (inputLength() > 0) {
     createListElement(input.value);
   }
-}
+};
 // add input value as list item after enter key is pressed
 const addListAfterKeypress = (event) => {
   if (inputLength() > 0 && event.key === "Enter") {
     createListElement(input.value);
   }
-}
+};
 // change list style and icons to done
 function crossedList() {
   this.classList.toggle("done");
 }
-
+//delete individual list item
 function deleteItem() {
   this.parentNode.remove();
 }
 
-// create new element with input value, and trash button
-function createListElement(value) {
+// create new element with input value, and trash button, and the crossed class
+const createListElement = (value) => {
   const li = document.createElement("li");
   li.appendChild(document.createTextNode(value));
   li.addEventListener("click", crossedList);
@@ -52,9 +52,9 @@ function createListElement(value) {
   trashButton.appendChild(trash);
   trashButton.addEventListener("click", deleteItem);
   resetInput();
-}
-
-function printPage() {
+};
+//print the page and hide/show buttons
+const printPage = () => {
   tooltip.classList.add("hidden");
   deleteButton.classList.add("hidden");
   button.classList.add("hidden");
@@ -66,17 +66,17 @@ function printPage() {
   input.classList.remove("hidden");
   printButton.classList.remove("hidden");
   tooltip.classList.remove("hidden");
-}
-
-function deleteList() {
+};
+//delete the entire list
+const deleteList = () => {
   const elements = document.querySelectorAll("li");
   for (var i = 0; i < elements.length; i++) {
     elements[i].remove();
   }
-}
+};
 
 // create "placeholder" items
-var els = ["Milk", "Water", "Eggs", "Oranges", "Lemons"];
+const els = ["Milk", "Water", "Eggs", "Oranges", "Lemons"];
 for (var i = 0; i < els.length; i++) {
   createListElement(els[i]);
 }
