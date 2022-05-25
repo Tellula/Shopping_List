@@ -1,3 +1,4 @@
+const list = [];
 const button = document.getElementById("enter");
 const input = document.getElementById("userInput");
 const ul = document.querySelector("ul");
@@ -16,15 +17,31 @@ const inputLength = () => {
   return input.value.length;
 };
 
+//Checks if item is already on the list
+const checkItemDouble = (input) => {
+  if (list.includes(input) === true) {
+    alert("This item is already in your shopping list !");
+    resetInput();
+    return true;
+  } else {
+    return false;
+  }
+};
+
 // add input value as list item after "add an item" button is pressed
 const addListAfterClick = () => {
-  if (inputLength() > 0) {
+  if (checkItemDouble(input.value) === false && inputLength() > 0) {
     createListElement(input.value);
   }
 };
+
 // add input value as list item after enter key is pressed
 const addListAfterKeypress = (event) => {
-  if (inputLength() > 0 && event.key === "Enter") {
+  if (
+    inputLength() > 0 &&
+    event.key === "Enter" &&
+    checkItemDouble(input.value) === false
+  ) {
     createListElement(input.value);
   }
 };
@@ -43,6 +60,7 @@ const createListElement = (value) => {
   li.appendChild(document.createTextNode(value));
   li.addEventListener("click", crossedList);
   ul.appendChild(li);
+  list.push(value);
   const trashButton = document.createElement("button");
   trashButton.classList.add("trash");
   li.appendChild(trashButton);
@@ -76,9 +94,9 @@ const deleteList = () => {
 };
 
 // create "placeholder" items
-const els = ["Milk", "Water", "Eggs", "Oranges", "Lemons"];
-for (var i = 0; i < els.length; i++) {
-  createListElement(els[i]);
+const cart = ["Milk", "Water", "Eggs", "Oranges", "Lemons"];
+for (var i = 0; i < cart.length; i++) {
+  createListElement(cart[i]);
 }
 
 deleteButton.addEventListener("click", deleteList);
